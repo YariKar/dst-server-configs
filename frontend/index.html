@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление сервером DST</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Тыкалка для Ромы</h1>
+            <div class="user-info">
+                <span>Пользователь: <span id="current-user">Ромочка</span></span>
+                <button id="logout-btn" class="btn btn-secondary">Выйти</button>
+            </div>
+        </header>
+        
+        <!-- Остальное содержимое -->
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script>
+        // Проверяем аутентификацию при загрузке
+        if (!isAuthenticated()) {
+            window.location.href = 'login.html';
+        }
+        
+        // Показываем текущего пользователя
+        document.getElementById('current-user').textContent = getCurrentUser();
+        
+        // Обработчик выхода
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            logout();
+        });
+    </script>
+</body>
+</html>
